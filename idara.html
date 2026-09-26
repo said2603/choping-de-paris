@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>متجر الإدارة الرقمية | خدمات إدارية وبطاقات بنكية ومتاجر إلكترونية</title>
+  <meta name="description" content="متجر إلكتروني متكامل لتقديم الخدمات الإدارية، فتح البطاقات البنكية الدولية (RedotPay & Grey)، وإنشاء المتاجر الإلكترونية مع طلب فوري وتواصل عبر الواتساب" />
+
+  <!-- الخط العربي الرسمي: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS عبر CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Cairo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- مكتبة الأيقونات Lucide عبر CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      scroll-behavior: smooth;
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white">
+
+  <!-- شريط الإعلان العلوي -->
+  <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-indigo-600 text-white px-4 py-2 text-xs md:text-sm font-medium">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="flex items-center gap-1 bg-white/20 px-2.5 py-0.5 rounded-full text-xs font-semibold">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i>
+          خدمة أونلاين 100%
+        </span>
+        <span class="hidden sm:inline">تسليم فوري للمراسلات، البطاقات الدولية، المتاجر، والسير الذاتية في كافة ولايات الجزائر</span>
+      </div>
+
+      <div class="flex items-center gap-4 mr-auto">
+        <div class="flex items-center gap-1.5 bg-emerald-700/60 hover:bg-emerald-700 px-3 py-1 rounded-full transition-colors">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-300"></i>
+          <span class="text-xs">تواصل واتساب المباشر:</span>
+          <a href="https://wa.me/213658618857?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D9%8A%D8%A9" target="_blank" rel="noopener noreferrer" dir="ltr" class="font-bold tracking-wider hover:underline font-mono">
+            +213 658 61 88 57
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ترويسة الموقع (Header) -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5">
+      <div class="flex items-center justify-between gap-4">
+        <!-- الشعار -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 via-teal-600 to-indigo-600 text-white font-black text-2xl shadow-md shadow-emerald-600/20 group-hover:scale-105 transition-transform">
+            إ
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-lg sm:text-xl font-black text-slate-900 tracking-tight">مكتب الإدارة الرقمية</span>
+              <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                أونلاين
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 font-medium hidden sm:block">خدمات إدارية، بطاقات بنكية، ومتاجر إلكترونية</p>
+          </div>
+        </a>
+
+        <!-- شريط البحث -->
+        <div class="hidden md:flex flex-1 max-w-md mx-6">
+          <div class="relative w-full">
+            <input
+              id="search-input"
+              type="text"
+              placeholder="ابحث عن خدمة (ريدوتباي، متجر، سيرة ذاتية، طعن، إكسل...)"
+              class="w-full pl-4 pr-10 py-2 text-sm bg-slate-100 border border-slate-200 rounded-xl focus:bg-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all placeholder:text-slate-400"
+              oninput="handleSearch(this.value)"
+            />
+            <i data-lucide="search" class="absolute right-3 top-2.5 w-4 h-4 text-slate-400 pointer-events-none"></i>
+          </div>
+        </div>
+
+        <!-- أزرار الإجراءات السريعة -->
+        <div class="flex items-center gap-2.5">
+          <button onclick="scrollToSection('gallery-section')" class="flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-xl transition-colors cursor-pointer">
+            <i data-lucide="images" class="w-4 h-4 text-emerald-600"></i>
+            <span class="hidden sm:inline">معرض الصور</span>
+          </button>
+
+          <button onclick="scrollToSection('contact-form-section')" class="hidden md:flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl transition-colors cursor-pointer">
+            <i data-lucide="mail" class="w-4 h-4 text-teal-600"></i>
+            <span>نموذج البريد</span>
+          </button>
+
+          <button onclick="openCustomQuoteModal()" class="hidden lg:flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-xl transition-colors cursor-pointer">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-indigo-600"></i>
+            <span>طلب خدمة خاصة</span>
+          </button>
+
+          <a href="https://wa.me/213658618857?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%A5%D8%AF%D8%A7%D8%B1%D9%8A%D8%A9%20%D9%85%D8%A8%D8%A7%D8%B4%D8%B1%D8%A9." target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-3.5 py-2 text-xs md:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow-xs transition-all hover:scale-[1.02]">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span class="hidden sm:inline">طلب عبر واتساب</span>
+            <span class="sm:hidden">واتساب</span>
+          </a>
+
+          <!-- زر سلة الخدمات -->
+          <button onclick="toggleCartDrawer(true)" class="relative flex items-center justify-center p-2.5 text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors cursor-pointer">
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+            <span id="cart-badge" class="hidden absolute -top-1.5 -right-1.5 bg-gradient-to-r from-amber-500 to-rose-500 text-white text-xs font-black w-5 h-5 rounded-full flex items-center justify-center shadow-xs">
+              0
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- الواجهة الرئيسية (HERO SECTION) -->
+  <section class="relative bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 text-white overflow-hidden py-14 lg:py-20 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        <!-- معرض الصورة المتصدرة -->
+        <div class="lg:col-span-6 order-first lg:order-2">
+          <div class="relative mx-auto max-w-lg lg:max-w-none">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-emerald-500 via-teal-400 to-indigo-500 rounded-3xl blur-xl opacity-30"></div>
+            <div class="relative bg-slate-900/90 rounded-2xl sm:rounded-3xl border border-slate-700/80 shadow-2xl overflow-hidden p-2 sm:p-3">
+              <div class="relative rounded-xl sm:rounded-2xl overflow-hidden aspect-[16/10] sm:aspect-[4/3] bg-slate-800 shadow-inner">
+                <img
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=85"
+                  alt="كيبورد كمبيوتر، قلم، ويد كاتبة إدارية تصيغ المعاملات"
+                  class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700 ease-out"
+                />
+              </div>
+
+              <div class="grid grid-cols-2 gap-2.5 mt-3">
+                <div class="bg-white/10 hover:bg-white/15 border border-white/10 rounded-xl p-2.5 sm:p-3 flex items-center gap-2.5 transition-colors">
+                  <div class="w-9 h-9 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                    <i data-lucide="credit-card" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-white">بطاقات RedotPay & Grey</h4>
+                    <p class="text-[10px] sm:text-[11px] text-slate-300">تفعيل فوري للشراء والإعلانات</p>
+                  </div>
+                </div>
+
+                <div class="bg-white/10 hover:bg-white/15 border border-white/10 rounded-xl p-2.5 sm:p-3 flex items-center gap-2.5 transition-colors">
+                  <div class="w-9 h-9 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0">
+                    <i data-lucide="store" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-white">متاجر إلكترونية COD</h4>
+                    <p class="text-[10px] sm:text-[11px] text-slate-300">جاهزة للبيع وشحن 58 ولاية</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- نصوص وعناوين الواجهة -->
+        <div class="lg:col-span-6 space-y-6 order-last lg:order-1 text-right">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-xs font-bold">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i>
+            <span>المنصة الأولى للخدمات الإدارية والبنكية والرقمية عن بعد في الجزائر</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight sm:leading-snug text-white">
+            خدمات إدارية، بطاقات بنكية، <br />
+            <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 bg-clip-text text-transparent">
+              ومتاجر إلكترونية باحترافية وسرعة
+            </span>
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+            تخلّص من عناء التنقل وصعوبة الصياغة! نوفر لك فتح وتفعيل البطاقات البنكية الدولية (RedotPay & Grey)، إنشاء وتجهيز المتاجر الإلكترونية للبيع والشحن، إعداد السير الذاتية ATS، صياغة المراسلات، معالجة ملفات الإكسل، والتسجيل في المنصات مع تواصل مباشر ومتابعة لحظية عبر الواتساب.
+          </p>
+
+          <!-- الشارات -->
+          <div class="flex flex-wrap gap-2 pt-1">
+            <div class="flex items-center gap-1.5 bg-amber-500/15 px-3 py-1.5 rounded-lg text-xs font-semibold text-amber-300 border border-amber-500/20">
+              <i data-lucide="credit-card" class="w-3.5 h-3.5 text-amber-400"></i>
+              <span>بطاقات RedotPay & Grey الدولية</span>
+            </div>
+            <div class="flex items-center gap-1.5 bg-teal-500/15 px-3 py-1.5 rounded-lg text-xs font-semibold text-teal-300 border border-teal-500/20">
+              <i data-lucide="store" class="w-3.5 h-3.5 text-teal-400"></i>
+              <span>متاجر إلكترونية وصفحات هبوط COD</span>
+            </div>
+            <div class="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-200 border border-white/10">
+              <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>تسليم فوري (12 - 24 ساعة)</span>
+            </div>
+            <div class="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-200 border border-white/10">
+              <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>دفع سهل بـ BaridiMob / CCP</span>
+            </div>
+          </div>
+
+          <!-- الأزرار الرئيسية -->
+          <div class="flex flex-wrap gap-3.5 pt-4">
+            <a
+              href="https://wa.me/213658618857?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D8%B3%D8%B1%D9%8A%D8%B9%D8%A9%20%D8%AD%D9%88%D9%84%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-500/25 transition-all hover:scale-[1.02]"
+            >
+              <i data-lucide="message-circle" class="w-5 h-5"></i>
+              <span>تواصل واستشرنا فوراً عبر واتساب</span>
+            </a>
+
+            <button
+              onclick="scrollToSection('services-section')"
+              class="flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm sm:text-base border border-white/15 transition-colors cursor-pointer"
+            >
+              <i data-lucide="arrow-down-circle" class="w-5 h-5 text-emerald-400"></i>
+              <span>تصفح قائمة الخدمات والأسعار</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم الخدمات والأسعار (SERVICES SECTION) -->
+  <section id="services-section" class="py-16 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full uppercase tracking-wider">
+            كتالوج الخدمات والأسعار الرسمية
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+            اختر الخدمة الإدارية أو الرقمية التي تحتاجها
+          </h2>
+          <p class="text-slate-600 text-sm mt-1">
+            جميع الخدمات تخضع للسرية التامة، وتسلّم بصيغ مفتوحة قابلة للتعديل والطباعة مع دعم متواصل.
+          </p>
+        </div>
+        <div class="text-xs text-slate-500 font-medium">
+          الدفع بعد الاتفاق عبر BaridiMob أو CCP
+        </div>
+      </div>
+
+      <!-- تصنيفات الخدمات -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none" id="categories-container"></div>
+
+      <!-- شبكة الخدمات -->
+      <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- قسم معرض الصور (GALLERY SECTION) -->
+  <section id="gallery-section" class="py-16 bg-slate-900 text-white border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-xs font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-800/60 px-3.5 py-1 rounded-full uppercase">
+          معرض النماذج والصور التوضيحية
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white mt-3">
+          شاهد عينات ونماذج أعمالنا الإدارية والبنكية والرقمية
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          نماذج عالية الدقة تعكس مستوى الاحترافية والدقة التي نلتزم بها في كل خدمة نقوم بإعدادها.
+        </p>
+      </div>
+
+      <!-- شبكة المعرض -->
+      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- التذييل ونموذج الاتصال بالبريد (FOOTER) -->
+  <footer class="bg-slate-950 text-slate-300 border-t border-slate-800 pt-14 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <!-- نموذج الاتصال بالبريد -->
+      <div id="contact-form-section" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 mb-14 shadow-2xl">
+        <div class="flex flex-col lg:flex-row items-start justify-between gap-6 border-b border-slate-800 pb-6 mb-8">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-bold mb-2">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+              <span>مراسلة مباشرة عبر البريد الإلكتروني</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-white">
+              نموذج الاستفسار والطلبات الخاصة
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
+              إذا كنت لا تفضل استخدام الواتساب أو ترغب في إرسال استفسار رسمي أو إرفاق ملفات لاحقاً، يمكنك تعبئة هذا النموذج وسيتم توجيه رسالتك إلى بريدنا الرسمي مباشرة.
+            </p>
+          </div>
+          <div class="flex items-center gap-3 bg-slate-950 border border-slate-800 px-4 py-3 rounded-2xl shrink-0">
+            <div class="w-10 h-10 rounded-xl bg-teal-600/20 text-teal-400 flex items-center justify-center shrink-0">
+              <i data-lucide="mail" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-[11px] text-slate-400 block">البريد الرسمي المعتمد:</span>
+              <span dir="ltr" class="text-xs sm:text-sm font-bold text-teal-300 font-mono">
+                mizabomilin@gmail.com
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1.5">الاسم الكامل *</label>
+              <input id="cf-name" type="text" required placeholder="مثال: محمد بن علي" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder:text-slate-500 focus:border-teal-500 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1.5">البريد الإلكتروني للرد عليك *</label>
+              <input id="cf-email" type="email" required placeholder="yourname@gmail.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder:text-slate-500 focus:border-teal-500 focus:outline-none text-left" dir="ltr" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1.5">رقم الهاتف أو الواتساب (اختياري)</label>
+              <input id="cf-phone" type="tel" placeholder="0658xxxxxx" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder:text-slate-500 focus:border-teal-500 focus:outline-none text-left" dir="ltr" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1.5">نوع الخدمة الإدارية أو الرقمية *</label>
+              <select id="cf-service" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:border-teal-500 focus:outline-none">
+                <option value="فتح وتفعيل بطاقة بنكية دولية (RedotPay / Grey)">فتح وتفعيل بطاقة بنكية دولية (RedotPay / Grey)</option>
+                <option value="إنشاء وتجهيز متجر إلكتروني احترافي (COD)">إنشاء وتجهيز متجر إلكتروني احترافي (COD)</option>
+                <option value="سيرة ذاتية مهنية (CV)">سيرة ذاتية مهنية (CV)</option>
+                <option value="مراسلات وطلبات وطعون إدارية">مراسلات وطلبات وطعون إدارية</option>
+                <option value="معالجة بيانات وملفات إكسل">معالجة بيانات وملفات إكسل</option>
+                <option value="التسجيل في المنصات وبوابات التوظيف">التسجيل في المنصات وبوابات التوظيف</option>
+                <option value="صياغة عقود ونماذج مخصصة">صياغة عقود ونماذج مخصصة</option>
+                <option value="استشارة إدارية عامة">استشارة إدارية عامة</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1.5">موضوع الاستفسار *</label>
+              <input id="cf-subject" type="text" required placeholder="مثال: طلب تفعيل بطاقة ريدوتباي وتوثيق الحساب" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder:text-slate-500 focus:border-teal-500 focus:outline-none" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1.5">تفاصيل الاستفسار والبيانات المطلوبة *</label>
+            <textarea id="cf-message" required rows="4" placeholder="اكتب هنا تفاصيل طلبك، البيانات المتوفرة، والوقت المفضل للتسليم..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-white placeholder:text-slate-500 focus:border-teal-500 focus:outline-none leading-relaxed"></textarea>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+            <div class="text-[11px] text-slate-400">
+              * سيتم فتح تطبيق البريد الخاص بك مع تعبئة الرسالة تلقائياً وتوجيهها لبريدنا mizabomilin@gmail.com.
+            </div>
+            <button type="submit" class="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs shadow-md transition-colors cursor-pointer">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>إرسال الاستفسار عبر البريد الإلكتروني</span>
+            </button>
+          </div>
+        </form>
+
+        <div id="contact-success" class="hidden mt-4 p-4 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 text-xs">
+          <div class="flex items-center gap-2 font-bold text-sm mb-1">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+            <span>تم تجهيز رسالتك بنجاح!</span>
+          </div>
+          <p class="text-slate-300">
+            تم فتح تطبيق البريد. سنرد عليك عبر بريدك خلال 12 إلى 24 ساعة.
+          </p>
+        </div>
+      </div>
+
+      <!-- أعمدة التذييل -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-500 text-white font-black text-xl shadow-md">
+              إ
+            </div>
+            <div>
+              <span class="text-lg font-black text-white block">مكتب الإدارة الرقمية</span>
+              <span class="text-xs text-emerald-400">خدمات إدارية ومكتبية أونلاين 100%</span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            متجر إلكتروني رائد في تقديم وتجهيز كافة الخدمات الإدارية والمكتبية والبنكية عن بعد: فتح بطاقات RedotPay و Grey، إنشاء المتاجر، السير الذاتية، المراسلات الرسمية، ومعالجة البيانات لكافة ولايات الجزائر.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h3 class="text-sm font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-1.5">
+            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+            <span>التواصل والطلبات المباشرة</span>
+          </h3>
+          <div class="space-y-2.5 text-xs">
+            <a href="https://wa.me/213658618857" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 p-3 rounded-xl bg-emerald-950/40 hover:bg-emerald-900/50 border border-emerald-500/30 transition-colors group">
+              <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <span class="text-[11px] text-slate-400 block">رقم الواتساب الرسمي:</span>
+                <span dir="ltr" class="text-sm font-black text-white group-hover:text-emerald-300 font-mono">
+                  +213 658 61 88 57
+                </span>
+              </div>
+            </a>
+
+            <a href="mailto:mizabomilin@gmail.com" class="flex items-center gap-2.5 p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700/60 transition-colors group">
+              <div class="w-8 h-8 rounded-lg bg-teal-600 text-white flex items-center justify-center shrink-0">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <span class="text-[11px] text-slate-400 block">البريد الإلكتروني المباشر:</span>
+                <span dir="ltr" class="text-xs font-bold text-white group-hover:text-teal-300 font-mono">
+                  mizabomilin@gmail.com
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <h3 class="text-sm font-bold text-white border-b border-slate-800 pb-2">
+            روابط سريعة
+          </h3>
+          <ul class="space-y-2 text-xs">
+            <li><button onclick="scrollToSection('services-section')" class="hover:text-emerald-400 transition-colors cursor-pointer">• قائمة الخدمات الإدارية والأسعار</button></li>
+            <li><button onclick="scrollToSection('gallery-section')" class="hover:text-emerald-400 transition-colors cursor-pointer">• معرض الصور والنماذج الإدارية</button></li>
+            <li><button onclick="scrollToSection('contact-form-section')" class="text-emerald-400 font-semibold hover:text-emerald-300 cursor-pointer">• نموذج الاستفسار عبر البريد</button></li>
+            <li><button onclick="openCustomQuoteModal()" class="hover:text-emerald-400 transition-colors cursor-pointer">• طلب خدمة إدارية مخصصة</button></li>
+            <li><span class="text-slate-400">• صيغ التسليم المفتوحة (Word, Excel, PDF)</span></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h3 class="text-sm font-bold text-white border-b border-slate-800 pb-2 flex items-center gap-1.5">
+            <i data-lucide="credit-card" class="w-4 h-4 text-amber-400"></i>
+            <span>طرق الدفع المعتمدة</span>
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            طرق دفع سريعة ومناسبة لجميع المواطنين داخل الجزائر:
+          </p>
+          <div class="grid grid-cols-2 gap-2 text-xs font-bold text-center">
+            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-amber-400">
+              <span class="text-sm block">BaridiMob</span>
+              <span class="text-[10px] text-slate-400 font-normal">بريدي موب (فوري)</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-emerald-400">
+              <span class="text-sm block">CCP</span>
+              <span class="text-[10px] text-slate-400 font-normal">حوالة بريدية</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-800 pt-6 text-center text-xs text-slate-500">
+        جميع الحقوق محفوظة © <span id="current-year">2025</span> مكتب الإدارة الرقمية | الجزائر
+      </div>
+    </div>
+  </footer>
+
+  <!-- زر واتساب العائم -->
+  <a
+    href="https://wa.me/213658618857?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%A5%D8%AF%D8%A7%D8%B1%D9%8A%D8%A9."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="fixed bottom-6 left-6 z-50 flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-3 rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95 group"
+    title="تواصل مباشرة عبر واتساب"
+  >
+    <div class="relative">
+      <i data-lucide="message-circle" class="w-6 h-6"></i>
+      <span class="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full animate-ping"></span>
+      <span class="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full"></span>
+    </div>
+    <span class="text-xs sm:text-sm font-bold hidden sm:inline">طلب فوري عبر واتساب</span>
+  </a>
+
+  <!-- درج سلة المشتريات (Drawer) -->
+  <div id="cart-drawer-overlay" class="hidden fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-xs transition-opacity" onclick="toggleCartDrawer(false)">
+    <div id="cart-drawer-content" class="absolute top-0 bottom-0 left-0 w-full max-w-md bg-white shadow-2xl flex flex-col" onclick="event.stopPropagation()">
+      <div class="p-4 sm:p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+        <div class="flex items-center gap-2">
+          <i data-lucide="shopping-bag" class="w-5 h-5 text-emerald-600"></i>
+          <h3 class="font-bold text-slate-900 text-base sm:text-lg">سلة الخدمات المختارة</h3>
+        </div>
+        <button onclick="toggleCartDrawer(false)" class="p-2 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-200">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 sm:p-5 space-y-3"></div>
+
+      <div class="p-4 sm:p-5 border-t border-slate-200 bg-slate-50 space-y-3">
+        <div class="flex items-center justify-between text-sm">
+          <span class="text-slate-500">المجموع الإجمالي التقريبي:</span>
+          <span id="cart-total-price" class="text-lg font-black text-emerald-600">0 دج</span>
+        </div>
+        <button
+          onclick="checkoutCartWhatsApp()"
+          class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 cursor-pointer transition-colors"
+        >
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>إتمام الطلب عبر الواتساب (213658618857)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- نافذة تفاصيل الخدمة (Modal) -->
+  <div id="service-modal-overlay" class="hidden fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4" onclick="closeServiceModal()">
+    <div id="service-modal-content" class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" onclick="event.stopPropagation()"></div>
+  </div>
+
+  <!-- نافذة طلب خدمة خاصة (Custom Quote Modal) -->
+  <div id="quote-modal-overlay" class="hidden fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4" onclick="closeCustomQuoteModal()">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-4">
+        <div class="flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-5 h-5 text-indigo-600"></i>
+          <h3 class="text-lg font-black text-slate-900">طلب خدمة إدارية خاصة مخصصة</h3>
+        </div>
+        <button onclick="closeCustomQuoteModal()" class="text-slate-400 hover:text-slate-600 p-1">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+        هل لديك ملف خاص أو معاملة إدارية غير مدرجة؟ املأ البيانات وسنقوم بالتواصل معك وتقديم عرض سعر فوري.
+      </p>
+
+      <form onsubmit="handleQuoteSubmit(event)" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">عنوان أو نوع الخدمة المطلوبة *</label>
+          <input id="quote-title" type="text" required placeholder="مثال: ترجمة وتنسيق عقد عمل + جدول حسابات" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs text-slate-900 focus:bg-white focus:border-indigo-500 focus:outline-none" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">تفاصيل ومواصفات الطلب *</label>
+          <textarea id="quote-details" required rows="3" placeholder="اشرح لنا ما تحتاجه بالضبط، الصيغة المطلوبة (Word, PDF, Excel)..." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-slate-900 focus:bg-white focus:border-indigo-500 focus:outline-none"></textarea>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">الوقت المفضل للاستلام</label>
+          <input id="quote-deadline" type="text" placeholder="مثال: خلال 24 ساعة / مستعجل اليوم" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs text-slate-900 focus:bg-white focus:border-indigo-500 focus:outline-none" />
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md cursor-pointer transition-colors mt-2">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>إرسال الطلب الخاص مباشرة عبر الواتساب</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- الأكواد البرمجية (Vanilla JavaScript) -->
+  <script>
+    const WHATSAPP_PHONE = '213658618857';
+
+    // أصناف الخدمات
+    const categories = [
+      { id: 'all', name: 'جميع الخدمات', icon: 'layout-grid' },
+      { id: 'cards', name: 'البطاقات البنكية (RedotPay & Grey)', icon: 'credit-card' },
+      { id: 'ecommerce', name: 'إنشاء المتاجر الإلكترونية', icon: 'store' },
+      { id: 'letters', name: 'المراسلات والخطابات', icon: 'file-text' },
+      { id: 'cv', name: 'السير الذاتية والتوظيف', icon: 'user-check' },
+      { id: 'excel', name: 'معالجة البيانات وإكسل', icon: 'sheet' },
+      { id: 'platforms', name: 'المنصات وبوابات التوظيف', icon: 'globe' },
+    ];
+
+    // قائمة الخدمات المتصدرة بالبطاقات البنكية والمتاجر
+    const services = [
+      {
+        id: 'redotpay-card-activation',
+        title: 'فتح وتفعيل بطاقة ريدوتباي (RedotPay) البنكية الدولية',
+        category: 'البطاقات البنكية (RedotPay & Grey)',
+        categoryId: 'cards',
+        shortDescription: 'إنشاء وتوثيق حساب RedotPay بالهوية الرسمية وتفعيل بطاقة فيزا/ماستركارد افتراضية للشراء من الإنترنت، الإعلانات الممولة، وسحب الأموال.',
+        fullDescription: 'خدمة متكاملة لفتح وتفعيل حساب RedotPay مع التوثيق الكامل بالهوية (KYC). تمكّنك البطاقة من الشراء من AliExpress، تفعيل PayPal، تمويل إعلانات Facebook و TikTok و Google، والاشتراك في Netflix و Spotify و ChatGPT بسهولة ومن داخل الجزائر وبأقل الرسوم.',
+        priceDzd: 1500,
+        originalPriceDzd: 2200,
+        deliveryTime: 'خلال 1 - 3 ساعات',
+        rating: 5.0,
+        reviewsCount: 194,
+        imageUrl: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1000&q=85',
+        badge: 'تفعيل فوري مضمون',
+        badgeColor: 'bg-rose-500 text-white',
+        deliverables: [
+          'إنشاء وتفعيل الحساب وتوثيق الهوية البيومترية بنجاح 100%',
+          'استخراج البطاقة الافتراضية الجاهزة فوراً للشراء أونلاين',
+          'ربط البطاقة بحساب PayPal الجزائري للتفعيل والإرسال والاستقبال',
+          'إمكانية طلب البطاقة البلاستيكية لشحنها إلى باب منزلك في الجزائر',
+          'خدمة شحن رصيد أولي بالدولار (USDT/USD) عبر BaridiMob أو CCP عند الطلب',
+          'دليل إرشادي ومتابعة مستمرة خطوة بخطوة عبر الواتساب'
+        ],
+        requirements: [
+          'بطاقة التعريف الوطنية البيومترية أو جواز السفر ساري المفعول',
+          'رقم هاتف مفعل وبريد إلكتروني شخصي',
+          'صورة سيلفي واضحة لاجتياز التحقق الآلي'
+        ]
+      },
+      {
+        id: 'grey-card-account-activation',
+        title: 'فتح وتفعيل حساب وبطاقة ڨراي (Grey) البنكية الدولية',
+        category: 'البطاقات البنكية (RedotPay & Grey)',
+        categoryId: 'cards',
+        shortDescription: 'إنشاء وتفعيل حساب بنكي دولي Grey بعملات الدولار واليورو والجنيه الإسترليني مع استخراج بطاقة ماستركارد للشراء واستلام أرباح العمل الحر.',
+        fullDescription: 'الحل الأمثل للفريلانسرز، المسوقين، وأصحاب الأنشطة الرقمية في الجزائر. نوفر لك فتح حساب بنكي دولي حقيقي (IBAN & Routing Number) لاستقبال أرباحك بالدولار واليورو والباوند من Upwork, Fiverr, Stripe, Deel, Payoneer وسحبها بسهولة أو استخدامها عبر بطاقة Grey الدولية في التسوق والإعلانات.',
+        priceDzd: 2200,
+        originalPriceDzd: 3000,
+        deliveryTime: 'خلال 2 - 6 ساعات',
+        rating: 4.9,
+        reviewsCount: 112,
+        imageUrl: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1000&q=85',
+        badge: 'حساب بالدولار واليورو',
+        badgeColor: 'bg-indigo-500 text-white',
+        deliverables: [
+          'فتح حساب بنكي رقمي بالدولار الأمريكي (USD) واليورو (EUR) والجنيه الإسترليني (GBP)',
+          'توثيق وتفعيل الهوية بنجاح وتجاوز اشتراطات التحقق الدولية',
+          'إصدار بطاقة ماستركارد Grey الرقمية للشراء الدولي وتمويل الإعلانات',
+          'معلومات الحساب البنكي الرسمي (IBAN / Account Number) لاستلام المدفوعات',
+          'إرشادات ربط الحساب بمنصات العمل الحر والبنوك الإلكترونية',
+          'متابعة ومساعدة فورية عبر الواتساب حتى اكتمال التفعيل'
+        ],
+        requirements: [
+          'جواز سفر بيومتري أو بطاقة تعريف وطنية بيومترية سارية',
+          'بريد إلكتروني نشط ورقم هاتف شخصي'
+        ]
+      },
+      {
+        id: 'ecommerce-store-creation',
+        title: 'إنشاء وتجهيز متجر إلكتروني احترافي متكامل للبيع والشحن',
+        category: 'إنشاء المتاجر الإلكترونية',
+        categoryId: 'ecommerce',
+        shortDescription: 'تصميم وإطلاق متجر إلكتروني جذاب وسريع (YouCan / Shopify / WooCommerce) مهيأ للهواتف، متوافق مع شركات الشحن الجزائرية، ومرتبط بالدفع والواتساب.',
+        fullDescription: 'نصمم لك متجراً إلكترونياً عالي الاحترافية مصمم خصيصاً لزيادة المبيعات بنظام الدفع عند الاستلام (COD) للجزائر. يشمل ربط اسم النطاق، رفع المنتجات وتنسيقها، تفعيل استمارة الطلب السريع بنقرة واحدة، ربط شركات الشحن المحلية (Yalidine, Procolis)، تفعيل بيكسل فيسبوك وتيك توك، وزر الشراء المباشر عبر الواتساب.',
+        priceDzd: 9500,
+        originalPriceDzd: 14000,
+        deliveryTime: 'خلال 48 - 72 ساعة',
+        rating: 5.0,
+        reviewsCount: 86,
+        imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85',
+        badge: 'متجر جاهز للبيع فوراً',
+        badgeColor: 'bg-emerald-600 text-white',
+        deliverables: [
+          'متجر إلكتروني متكامل سريع ومتجاوب 100% مع الهواتف الذكية وأجهزة الكمبيوتر',
+          'استمارة شراء سريعة بضغطة زر (One-Page Checkout) مخصصة للولايات والبلديات الجزائرية',
+          'ربط شركات الشحن الجزائرية لحساب تكلفة التوصيل للـ 58 ولاية تلقائياً',
+          'رفع وتنسيق أول 10 منتجات مع صور احترافية ووصف تسويقي مقنع وجذاب',
+          'ربط بيكسل الإعلانات (Facebook Pixel, TikTok Pixel) وزر الواتساب',
+          'دليل تدريبي شامل لإدارة وتسيير الطلبيات وتعديل الأسعار بكل سهولة'
+        ],
+        requirements: [
+          'اسم ونشاط المتجر وصور المنتجات والأسعار المراد إدراجها',
+          'بيانات التواصل وحسابات وسائل التواصل الاجتماعي'
+        ]
+      },
+      {
+        id: 'ecommerce-landing-page',
+        title: 'تصميم صفحة هبوط تسويقية للمنتج الرابح (High Converting Landing Page)',
+        category: 'إنشاء المتاجر الإلكترونية',
+        categoryId: 'ecommerce',
+        shortDescription: 'صفحة هبوط إعلانية حصرية فائقة الإقناع مصممة لمضاعفة مبيعات منتج محدد بنسبة تحويل مرتفعة مع استمارة طلب فورية سريعة.',
+        fullDescription: 'صفحة بيع متطورة للمسوقين ورواد التجارة الإلكترونية بنظام COD في الجزائر. كتابة إعلانية مقنعة (Copywriting)، صور جرافيك للمنتج، استعراض آراء العملاء، واستمارة طلب سريعة ترسل الطلبيات مباشرة إلى جدولك أو الواتساب.',
+        priceDzd: 4500,
+        originalPriceDzd: 6500,
+        deliveryTime: 'خلال 24 - 48 ساعة',
+        rating: 4.9,
+        reviewsCount: 97,
+        imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85',
+        badge: 'أعلى نسبة مبيعات',
+        badgeColor: 'bg-amber-500 text-white',
+        deliverables: [
+          'صفحة هبوط فائقة السرعة ومتوافقة تماماً مع الهواتف الذكية',
+          'صياغة نصوص بيعية مقنعة تركز على فوائد المنتج وحل مشكلات العميل',
+          'استمارة طلب مجهزة لقائمة الـ 58 ولاية وخيارات العروض',
+          'ربط بيكسل الإعلانات وإرسال الإشعارات بالطلبات فورياً'
+        ],
+        requirements: [
+          'معلومات وصور المنتج والعروض المراد تقديمها'
+        ]
+      },
+      {
+        id: 'pro-cv-ats',
+        title: 'إعداد سيرة ذاتية احترافية متوافقة مع أنظمة ATS',
+        category: 'السير الذاتية والتوظيف',
+        categoryId: 'cv',
+        shortDescription: 'تصميم سيرة ذاتية عصرية مع صياغة قوية للخبرات والمهارات لتجاوز فحص الروبوتات ATS وقبول طلبات التوظيف.',
+        fullDescription: 'سيرة ذاتية احترافية مصممة خصيصاً لتجاوز أنظمة تتبع المتقدمين (ATS) التي تعتمدها الشركات الكبرى والمؤسسات. نقوم بصياغة لغوية دقيقة للخبرات والمهارات مع اختيار كلمات مفتاحية تتناسب مع مجال عملك.',
+        priceDzd: 1200,
+        originalPriceDzd: 1800,
+        deliveryTime: 'خلال 12 - 24 ساعة',
+        rating: 4.9,
+        reviewsCount: 142,
+        imageUrl: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=1000&q=85',
+        badge: 'الأكثر طلباً',
+        badgeColor: 'bg-emerald-600 text-white',
+        deliverables: [
+          'ملف PDF عالي الدقة جاهز للطباعة والتقديم المباشر',
+          'ملف Word مفتوح المصدر للتعديل المستقبلي',
+          'صياغة احترافية للملخص المهني والمهارات والخبرات',
+          'تعديلات مجانية غير محدودة حتى الرضا التام'
+        ],
+        requirements: [
+          'المعلومات الشخصية، المؤهلات والشهادات، والخبرات السابقة'
+        ]
+      },
+      {
+        id: 'official-administrative-letter',
+        title: 'صياغة مراسلة أو تظلم أو طعن إداري رسمي',
+        category: 'المراسلات والخطابات',
+        categoryId: 'letters',
+        shortDescription: 'صياغة قانونية وإدارية رصينة للطعون، التظلمات، وطلبات التحويل الموجهة للوزارات والمؤسسات والولايات.',
+        fullDescription: 'كتابة المراسلات الإدارية الرسمية بأسلوب قانوني محكم وعبارات رسمية دقيقة. نضمن وضوح المطلب، الاستناد للوائح المعمول بها، والتنسيق الإداري المعتمد في الجزائر.',
+        priceDzd: 1500,
+        originalPriceDzd: 2000,
+        deliveryTime: 'خلال 12 ساعة',
+        rating: 5.0,
+        reviewsCount: 89,
+        imageUrl: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1000&q=85',
+        badge: 'صياغة قانونية دقيقة',
+        badgeColor: 'bg-indigo-600 text-white',
+        deliverables: [
+          'ملف Word منسق بهوامش رسمية جاهز للتوقيع',
+          'نسخة PDF فورية للطباعة المباشرة',
+          'مراجعة وتدقيق لغوي ونحوي 100%'
+        ],
+        requirements: [
+          'الجهة الموجه إليها، موضوع المراسلة، وتفاصيل المشكلة'
+        ]
+      },
+      {
+        id: 'excel-data-sheet-design',
+        title: 'تصميم نموذج إكسل متقدم مع الدوال والتقارير',
+        category: 'معالجة البيانات وإكسل',
+        categoryId: 'excel',
+        shortDescription: 'بناء جداول إكسل ديناميكية لحساب الرواتب، تسيير المخزون، أو الفواتير التلقائية مع دوال ذكية ولوحة مؤشرات.',
+        fullDescription: 'تطوير ملفات إكسل مخصصة لتسيير أعمالك بكفاءة عالية. نستخدم دوال البحث المتقدمة، التنسيق الشرطي، وحماية الخلايا لضمان سهولة الإدخال واستخراج التقارير.',
+        priceDzd: 2500,
+        originalPriceDzd: 3500,
+        deliveryTime: 'خلال 24 - 48 ساعة',
+        rating: 4.8,
+        reviewsCount: 63,
+        imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85',
+        badge: 'أتمتة وحسابات دقيقة',
+        badgeColor: 'bg-teal-600 text-white',
+        deliverables: [
+          'ملف إكسل كامل الصلاحية (.xlsx)',
+          'واجهة تحكم بسيطة مع شروحات استخدام الخلايا والدوال',
+          'دعم وتعديل بعد التسليم لمدة 7 أيام مجاناً'
+        ],
+        requirements: [
+          'طبيعة النشاط والبيانات المطلوب حسابها في الجدول'
+        ]
+      },
+      {
+        id: 'platform-recruitment-registration',
+        title: 'التسجيل الدقيق في منصات التوظيف والمسابقات',
+        category: 'المنصات وبوابات التوظيف',
+        categoryId: 'platforms',
+        shortDescription: 'رفع الملفات وضبط مقاسات الصور وتعبئة استمارات التوظيف والمسابقات الرسمية دون أخطاء تقنية.',
+        fullDescription: 'نقوم بعملية التسجيل الكاملة في منصات التوظيف وبوابات المسابقات الوطنية ومطابقة الملفات الرقمية مع الشروط التقنية المطلوبة لضمان قبول الاستمارة وتفادي الإقصاء.',
+        priceDzd: 1000,
+        originalPriceDzd: 1500,
+        deliveryTime: 'خلال ساعتين إلى 6 ساعات',
+        rating: 4.9,
+        reviewsCount: 156,
+        imageUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=85',
+        badge: 'تسجيل بدون أخطاء',
+        badgeColor: 'bg-emerald-600 text-white',
+        deliverables: [
+          'وصل التسجيل الرسمي بصيغة PDF',
+          'بيانات الدخول واسم المستخدم وكلمة المرور المشفرة',
+          'تأكيد مطابقة جميع الوثائق المرفوعة'
+        ],
+        requirements: [
+          'صور الوثائق المطلوبة ورابط المنصة أو المسابقة'
+        ]
+      }
+    ];
+
+    // عناصر المعرض
+    const galleryItems = [
+      {
+        title: 'فتح وتفعيل بطاقات RedotPay و Grey البنكية الدولية',
+        category: 'البطاقات البنكية (RedotPay & Grey)',
+        imageUrl: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=85',
+        priceDzd: 1500,
+        badge: 'بطاقات دولية مضمونة'
+      },
+      {
+        title: 'إنشاء وتجهيز المتاجر الإلكترونية وصفحات الهبوط (COD)',
+        category: 'إنشاء المتاجر الإلكترونية',
+        imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=85',
+        priceDzd: 9500,
+        badge: 'متجر جاهز للمبيعات'
+      },
+      {
+        title: 'كيبورد كمبيوتر، قلم، ويد كاتبة إدارية تصيغ المعاملات',
+        category: 'المكتب والمراسلات',
+        imageUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=85',
+        priceDzd: 1500,
+        badge: 'الواجهة الرئيسية'
+      },
+      {
+        title: 'نموذج سيرة ذاتية احترافية ثنائية اللغة متوافقة مع ATS',
+        category: 'السير الذاتية والتوظيف',
+        imageUrl: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=800&q=85',
+        priceDzd: 1200,
+        badge: 'سيرة ذاتية مقبولة'
+      },
+      {
+        title: 'لوحة تحكم وتحليل بيانات متطورة ببرنامج Excel',
+        category: 'معالجة البيانات وإكسل',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=85',
+        priceDzd: 2500,
+        badge: 'تسيير آلي'
+      },
+      {
+        title: 'صياغة طعن وتظلم إداري رسمي موجه للجهات المعنية',
+        category: 'المراسلات والخطابات',
+        imageUrl: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=85',
+        priceDzd: 1500,
+        badge: 'صياغة قانونية'
+      }
+    ];
+
+    let selectedCategory = 'all';
+    let searchQuery = '';
+    let cart = [];
+
+    function makeWhatsAppUrl(message) {
+      return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCategories();
+      renderServices();
+      renderGallery();
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+      lucide.createIcons();
+    });
+
+    function renderCategories() {
+      const container = document.getElementById('categories-container');
+      container.innerHTML = categories.map(cat => {
+        const isActive = cat.id === selectedCategory;
+        return `
+          <button
+            onclick="setCategory('${cat.id}')"
+            class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all cursor-pointer ${
+              isActive
+                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/20'
+                : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+            }"
+          >
+            <i data-lucide="${cat.icon}" class="w-4 h-4"></i>
+            <span>${cat.name}</span>
+          </button>
+        `;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function setCategory(id) {
+      selectedCategory = id;
+      renderCategories();
+      renderServices();
+    }
+
+    function handleSearch(val) {
+      searchQuery = val.trim().toLowerCase();
+      renderServices();
+    }
+
+    function renderServices() {
+      const grid = document.getElementById('services-grid');
+      const filtered = services.filter(s => {
+        const matchesCat = selectedCategory === 'all' || s.categoryId === selectedCategory;
+        const matchesSearch = !searchQuery || 
+          s.title.toLowerCase().includes(searchQuery) ||
+          s.shortDescription.toLowerCase().includes(searchQuery) ||
+          s.category.toLowerCase().includes(searchQuery);
+        return matchesCat && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-12 bg-white rounded-2xl border border-slate-200">
+            <i data-lucide="search" class="w-10 h-10 text-slate-300 mx-auto mb-2"></i>
+            <h4 class="text-base font-bold text-slate-700">لم يتم العثور على خدمات مطابقة</h4>
+            <p class="text-xs text-slate-500 mt-1">جرب البحث بكلمات أخرى أو تصفح جميع الأصناف</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      grid.innerHTML = filtered.map(s => {
+        const directWa = makeWhatsAppUrl(`مرحباً مكتب الإدارة الرقمية، أود طلب خدمة: "${s.title}" (السعر: ${s.priceDzd} دج).`);
+        return `
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group">
+            <div class="relative aspect-video overflow-hidden bg-slate-100">
+              <img src="${s.imageUrl}" alt="${s.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <span class="absolute top-3 right-3 text-[11px] font-bold px-2.5 py-1 rounded-full shadow-xs ${s.badgeColor}">
+                ${s.badge}
+              </span>
+              <span class="absolute bottom-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-900/80 text-white backdrop-blur-xs">
+                ${s.category}
+              </span>
+            </div>
+
+            <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="font-bold text-base text-slate-900 leading-snug group-hover:text-emerald-700 transition-colors">
+                  ${s.title}
+                </h3>
+                <p class="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">
+                  ${s.shortDescription}
+                </p>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 space-y-3">
+                <div class="flex items-center justify-between text-xs">
+                  <div class="flex items-center gap-1.5 text-slate-500">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-emerald-600"></i>
+                    <span>${s.deliveryTime}</span>
+                  </div>
+                  <div class="text-left">
+                    <span class="text-xs text-slate-400 line-through block">${s.originalPriceDzd} دج</span>
+                    <span class="text-base font-black text-emerald-600">${s.priceDzd} دج</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                  <button
+                    onclick="openServiceModal('${s.id}')"
+                    class="py-2 px-3 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors cursor-pointer flex items-center justify-center gap-1"
+                  >
+                    <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+                    <span>التفاصيل</span>
+                  </button>
+
+                  <button
+                    onclick="addToCart('${s.id}')"
+                    class="py-2 px-3 text-xs font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-xl transition-colors cursor-pointer flex items-center justify-center gap-1"
+                  >
+                    <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+                    <span>أضف للسلة</span>
+                  </button>
+                </div>
+
+                <a
+                  href="${directWa}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-xs transition-colors"
+                >
+                  <i data-lucide="message-circle" class="w-4 h-4"></i>
+                  <span>طلب مباشر عبر واتساب</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function renderGallery() {
+      const grid = document.getElementById('gallery-grid');
+      grid.innerHTML = galleryItems.map(item => {
+        const wa = makeWhatsAppUrl(`مرحباً مكتب الإدارة الرقمية، استفسر عن هذا النموذج في المعرض: "${item.title}".`);
+        return `
+          <div class="bg-slate-800/80 rounded-2xl border border-slate-700 overflow-hidden group">
+            <div class="relative aspect-video overflow-hidden bg-slate-900">
+              <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <span class="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-600 text-white">
+                ${item.badge}
+              </span>
+            </div>
+            <div class="p-4 space-y-2">
+              <span class="text-[11px] text-emerald-400 font-semibold block">${item.category}</span>
+              <h4 class="font-bold text-sm text-white line-clamp-1">${item.title}</h4>
+              <div class="flex items-center justify-between pt-2 border-t border-slate-700/60 text-xs">
+                <span class="text-amber-400 font-bold">${item.priceDzd} دج</span>
+                <a href="${wa}" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline flex items-center gap-1">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                  <span>طلب هذا النموذج</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function openServiceModal(id) {
+      const s = services.find(item => item.id === id);
+      if (!s) return;
+
+      const directWa = makeWhatsAppUrl(`مرحباً مكتب الإدارة الرقمية، أود طلب الخدمة بعد مراجعة تفاصيلها: "${s.title}" بسعر ${s.priceDzd} دج.`);
+      const modal = document.getElementById('service-modal-content');
+
+      modal.innerHTML = `
+        <div class="relative">
+          <div class="relative aspect-video w-full overflow-hidden bg-slate-900 rounded-t-3xl">
+            <img src="${s.imageUrl}" alt="${s.title}" class="w-full h-full object-cover" />
+            <button onclick="closeServiceModal()" class="absolute top-4 left-4 w-9 h-9 rounded-full bg-slate-900/80 text-white flex items-center justify-center hover:bg-slate-900">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <span class="absolute bottom-4 right-4 ${s.badgeColor} text-xs font-bold px-3 py-1 rounded-full shadow-md">
+              ${s.badge}
+            </span>
+          </div>
+
+          <div class="p-6 sm:p-8 space-y-6">
+            <div>
+              <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">
+                ${s.category}
+              </span>
+              <h2 class="text-xl sm:text-2xl font-black text-slate-900 mt-2">${s.title}</h2>
+              <p class="text-sm text-slate-600 mt-2 leading-relaxed">${s.fullDescription}</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs">
+              <div>
+                <span class="text-slate-400 block">السعر المخفض:</span>
+                <span class="text-base font-black text-emerald-600">${s.priceDzd} دج</span>
+              </div>
+              <div>
+                <span class="text-slate-400 block">مدة الإنجاز:</span>
+                <span class="font-bold text-slate-800">${s.deliveryTime}</span>
+              </div>
+              <div>
+                <span class="text-slate-400 block">التقييم:</span>
+                <span class="font-bold text-amber-600">⭐ ${s.rating} (${s.reviewsCount} تقييم)</span>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-sm text-slate-900 mb-2">ماذا ستحصل عليه في هذه الخدمة:</h4>
+              <ul class="space-y-1.5 text-xs text-slate-700">
+                ${s.deliverables.map(d => `
+                  <li class="flex items-center gap-2">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                    <span>${d}</span>
+                  </li>
+                `).join('')}
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-sm text-slate-900 mb-2">المتطلبات اللازمة من العميل:</h4>
+              <ul class="space-y-1.5 text-xs text-slate-600">
+                ${s.requirements.map(r => `
+                  <li class="flex items-center gap-2">
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
+                    <span>${r}</span>
+                  </li>
+                `).join('')}
+              </ul>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-slate-200">
+              <button
+                onclick="addToCart('${s.id}'); closeServiceModal();"
+                class="flex-1 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                <i data-lucide="plus-circle" class="w-4 h-4 text-emerald-600"></i>
+                <span>إضافة إلى سلة الخدمات</span>
+              </button>
+
+              <a
+                href="${directWa}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex-1 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-colors"
+              >
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>طلب فوري عبر الواتساب</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('service-modal-overlay').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeServiceModal() {
+      document.getElementById('service-modal-overlay').classList.add('hidden');
+    }
+
+    function addToCart(serviceId) {
+      const s = services.find(item => item.id === serviceId);
+      if (!s) return;
+
+      const existing = cart.find(item => item.id === serviceId);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ ...s, quantity: 1 });
+      }
+      updateCartUI();
+      toggleCartDrawer(true);
+    }
+
+    function updateCartQuantity(serviceId, delta) {
+      const idx = cart.findIndex(item => item.id === serviceId);
+      if (idx === -1) return;
+
+      cart[idx].quantity += delta;
+      if (cart[idx].quantity <= 0) {
+        cart.splice(idx, 1);
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('cart-badge');
+      const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+      const totalPrice = cart.reduce((acc, item) => acc + (item.priceDzd * item.quantity), 0);
+
+      if (totalCount > 0) {
+        badge.classList.remove('hidden');
+        badge.textContent = totalCount;
+      } else {
+        badge.classList.add('hidden');
+      }
+
+      document.getElementById('cart-total-price').textContent = `${totalPrice.toLocaleString()} دج`;
+
+      const container = document.getElementById('cart-items-container');
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 text-slate-400">
+            <i data-lucide="shopping-bag" class="w-12 h-12 mx-auto mb-2 text-slate-300"></i>
+            <p class="text-sm font-bold text-slate-600">سلة الخدمات فارغة حالياً</p>
+            <p class="text-xs mt-1">تصفح الخدمات وأضف ما ترغب في طلبه معاً في رسالة واحدة.</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      container.innerHTML = cart.map(item => `
+        <div class="flex items-center justify-between p-3 bg-slate-50 border border-slate-200 rounded-xl">
+          <div class="flex-1 pr-2">
+            <h4 class="text-xs font-bold text-slate-900 line-clamp-1">${item.title}</h4>
+            <span class="text-xs text-emerald-600 font-bold">${item.priceDzd * item.quantity} دج</span>
+          </div>
+          <div class="flex items-center gap-2 bg-white border border-slate-200 rounded-lg p-1">
+            <button onclick="updateCartQuantity('${item.id}', -1)" class="w-6 h-6 flex items-center justify-center text-slate-500 hover:bg-slate-100 rounded">
+              -
+            </button>
+            <span class="text-xs font-bold w-4 text-center">${item.quantity}</span>
+            <button onclick="updateCartQuantity('${item.id}', 1)" class="w-6 h-6 flex items-center justify-center text-slate-500 hover:bg-slate-100 rounded">
+              +
+            </button>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function toggleCartDrawer(open) {
+      const overlay = document.getElementById('cart-drawer-overlay');
+      if (open) {
+        overlay.classList.remove('hidden');
+      } else {
+        overlay.classList.add('hidden');
+      }
+    }
+
+    function checkoutCartWhatsApp() {
+      if (cart.length === 0) {
+        alert('يرجى إضافة خدمة واحدة على الأقل للسلة أولاً.');
+        return;
+      }
+
+      const totalPrice = cart.reduce((acc, item) => acc + (item.priceDzd * item.quantity), 0);
+      const itemsList = cart.map(item => `• ${item.title} (العدد: ${item.quantity}) - السعر: ${item.priceDzd * item.quantity} دج`).join('\n');
+
+      const message = `مرحباً مكتب الإدارة الرقمية،
+أود طلب قائمة الخدمات التالية من السلة:
+
+${itemsList}
+
+المجموع الكلي: ${totalPrice.toLocaleString()} دج
+طريقة الدفع المفضلة: (BaridiMob / CCP)`;
+
+      window.open(makeWhatsAppUrl(message), '_blank');
+    }
+
+    function openCustomQuoteModal() {
+      document.getElementById('quote-modal-overlay').classList.remove('hidden');
+    }
+
+    function closeCustomQuoteModal() {
+      document.getElementById('quote-modal-overlay').classList.add('hidden');
+    }
+
+    function handleQuoteSubmit(e) {
+      e.preventDefault();
+      const title = document.getElementById('quote-title').value;
+      const details = document.getElementById('quote-details').value;
+      const deadline = document.getElementById('quote-deadline').value || 'في أقرب وقت';
+
+      const message = `مرحباً مكتب الإدارة الرقمية،
+أود طلب خدمة إدارية خاصة غير مدرجة:
+
+• عنوان الخدمة: ${title}
+• المواصفات والتفاصيل: ${details}
+• الوقت المفضل للاستلام: ${deadline}`;
+
+      closeCustomQuoteModal();
+      window.open(makeWhatsAppUrl(message), '_blank');
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('cf-name').value;
+      const email = document.getElementById('cf-email').value;
+      const phone = document.getElementById('cf-phone').value || 'غير محدد';
+      const service = document.getElementById('cf-service').value;
+      const subject = document.getElementById('cf-subject').value;
+      const message = document.getElementById('cf-message').value;
+
+      const body = `مرحباً مكتب الإدارة الرقمية،
+
+لدي استفسار رسمي:
+• الاسم: ${name}
+• البريد الإلكتروني: ${email}
+• رقم الهاتف/واتساب: ${phone}
+• الخدمة المطلوبة: ${service}
+• الموضوع: ${subject}
+
+التفاصيل:
+${message}`;
+
+      const mailtoUrl = `mailto:mizabomilin@gmail.com?subject=${encodeURIComponent('[استفسار إداري] ' + subject + ' - ' + name)}&body=${encodeURIComponent(body)}`;
+      
+      document.getElementById('contact-success').classList.remove('hidden');
+      window.location.href = mailtoUrl;
+    }
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
